@@ -52,6 +52,11 @@ public:
         return (first.mRank.second == second.mRank.second);
     }
 
+    std::string getRank()
+    {
+        return mRank.first;
+    }
+
 };
 
 struct Card
