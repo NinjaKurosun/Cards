@@ -4,12 +4,75 @@
 #include <iostream>
 
 
-enum class Suits
+
+class NominalBox
 {
-    HEARTS,
-    DIAMONDS,
-    CLUBS,
-    SPADES
+    std::pair<std::string, int> mNominal;
+
+
+public:
+    NominalBox()
+    {
+    }
+
+    std::string toString()
+    {
+        return mNominal.first;
+    }
+
+    friend bool operator<(const NominalBox& first, const NominalBox& second)
+    {
+        return (first.mNominal.second < second.mNominal.second);
+    }
+
+    friend bool operator>(const NominalBox& first, const NominalBox& second)
+    {
+        return !(first < second);
+    }
+
+    friend bool operator<=(const NominalBox& first, const NominalBox& second)
+    {
+        return (first.mNominal.second <= second.mNominal.second);
+    }
+
+    friend bool operator>=(const NominalBox& first, const NominalBox& second)
+    {
+        return !(first <= second);
+    }
+
+    friend bool operator==(const NominalBox& first, const NominalBox& second)
+    {
+        return (first.mNominal.second == second.mNominal.second);
+    }
+
+
+protected:
+    void setNominal(const std::pair<std::string, int> nominal)
+    {
+        mNominal = nominal;
+    }
+
+};
+
+
+class Suit : public NominalBox
+{
+    const std::map<std::string, int> suits =
+    {
+        {"HEARTS"  , 0},
+        {"DIAMONDS", 1},
+        {"CLUBS"   , 2},
+        {"SPADES"  , 3}
+    };
+
+
+public:
+    Suit(std::string suit)
+    {
+        setNominal(*suits.find(suit));
+    }
+
+
 };
 
 class Rank
@@ -33,6 +96,7 @@ class Rank
 
     std::pair<std::string, int> mRank;
 
+
 public:
     Rank(std::string rank)
     {
@@ -43,14 +107,17 @@ public:
     {
         return (first.mRank.second < second.mRank.second);
     }
+
     friend bool operator>(const Rank& first, const Rank& second)
     {
         return !(first < second);
     }
+
     friend bool operator==(const Rank& first, const Rank& second)
     {
         return (first.mRank.second == second.mRank.second);
     }
+
 
     std::string getRank()
     {
@@ -62,5 +129,6 @@ public:
 struct Card
 {
     Rank ranking;
-    Suits suit;
+    Suit suit;
+
 };
