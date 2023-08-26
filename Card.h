@@ -75,7 +75,7 @@ public:
 
 };
 
-class Rank
+class Rank : public NominalBox
 {
     const std::map<std::string, int> ranks =
     {
@@ -94,35 +94,13 @@ class Rank
         {"A", 14}
     };
 
-    std::pair<std::string, int> mRank;
-
 
 public:
     Rank(std::string rank)
     {
-        mRank = *(ranks.find(rank));
+        setNominal(*ranks.find(rank));
     }
 
-    friend bool operator<(const Rank& first, const Rank& second)
-    {
-        return (first.mRank.second < second.mRank.second);
-    }
-
-    friend bool operator>(const Rank& first, const Rank& second)
-    {
-        return !(first < second);
-    }
-
-    friend bool operator==(const Rank& first, const Rank& second)
-    {
-        return (first.mRank.second == second.mRank.second);
-    }
-
-
-    std::string getRank()
-    {
-        return mRank.first;
-    }
 
 };
 
