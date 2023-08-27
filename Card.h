@@ -1,58 +1,6 @@
 #pragma once
-#include <map>
-#include <string>
 #include <iostream>
-
-
-
-class NominalBox
-{
-    std::pair<std::string, int> mNominal;
-
-
-public:
-    NominalBox()
-    {
-    }
-
-    std::string toString()
-    {
-        return mNominal.first;
-    }
-
-    friend bool operator<(const NominalBox& first, const NominalBox& second)
-    {
-        return (first.mNominal.second < second.mNominal.second);
-    }
-
-    friend bool operator>(const NominalBox& first, const NominalBox& second)
-    {
-        return !(first < second);
-    }
-
-    friend bool operator<=(const NominalBox& first, const NominalBox& second)
-    {
-        return (first.mNominal.second <= second.mNominal.second);
-    }
-
-    friend bool operator>=(const NominalBox& first, const NominalBox& second)
-    {
-        return !(first <= second);
-    }
-
-    friend bool operator==(const NominalBox& first, const NominalBox& second)
-    {
-        return (first.mNominal.second == second.mNominal.second);
-    }
-
-
-protected:
-    void setNominal(const std::pair<std::string, int> nominal)
-    {
-        mNominal = nominal;
-    }
-
-};
+#include "NominalBox.h"
 
 
 class Suit : public NominalBox
