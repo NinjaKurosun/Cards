@@ -57,4 +57,7 @@ struct Card
     Rank ranking;
     Suit suit;
 
+    Card(Rank lRank, Suit lSuit) : ranking(lRank), suit(lSuit)
+    {
+    }
 };
