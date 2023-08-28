@@ -1,15 +1,23 @@
 #pragma once
-#include <iostream>
+#include <ostream>
+#include <map>
 #include "Suit.h"
 #include "Rank.h"
 
 
-struct Card
+struct Card : public std::pair<Suit, Rank>
 {
-    Rank ranking;
-    Suit suit;
 
-    Card(Rank lRank, Suit lSuit) : ranking(lRank), suit(lSuit)
+    Card(Rank lRank, Suit lSuit) : std::pair<Suit, Rank>(lSuit, lRank)
     {
     }
+
+
+    friend std::ostream& operator<<(std::ostream& out, const Card& crd)
+    {
+        out << crd.second << " " << crd.first;
+        return out;
+    }
+
+
 };

@@ -1,17 +1,19 @@
 #include <iostream>
 #include "Card.h"
+#include <map>
+
 
 int main()
 {
-    Rank q("K");
-    Rank k("Q");
-    Suit s("HEARTS");
-    Suit d("DIAMONDS");
 
-    Card crd(Rank("K"), Suit("HEARTS"));
-    std::cout << crd.suit << " " << crd.ranking << std::endl;
-    std::cout << ((s >= d) ? s : d) << std::endl;
-    if (q >= k)
-        std::cout << "start working" << std::endl;
+    std::pair<int, int> first(1,2);
+    std::pair<int, int> second(2,1);
+
+    Card c_first(Rank("Q"), Suit("DIAMONDS"));
+    Card c_second(Rank("K"), Suit("HEARTS"));
+    std::cout << (c_first < c_second) << std::endl;
+
+    std::cout << (first < second) << std::endl;
+
     return 0;
 }

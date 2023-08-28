@@ -7,9 +7,9 @@ class Suit : public NominalBox
     const std::map<std::string, int> suits =
     {
         {"HEARTS"  , 0},
-        {"DIAMONDS", 1},
-        {"CLUBS"   , 2},
-        {"SPADES"  , 3}
+        {"DIAMONDS", 0},
+        {"CLUBS"   , 0},
+        {"SPADES"  , 0}
     };
 
 
