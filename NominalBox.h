@@ -23,7 +23,7 @@ public:
 
 
 protected:
-    void setNominal(const std::pair<std::string, int> nominal);
+    void setNominal(const std::pair<std::string, int>& nominal);
 
 
 };

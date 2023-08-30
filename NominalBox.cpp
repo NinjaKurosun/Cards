@@ -43,7 +43,7 @@ std::string NominalBox::toString() const
 }
 
 
-void NominalBox::setNominal(const std::pair<std::string, int> nominal)
+void NominalBox::setNominal(const std::pair<std::string, int>& nominal)
 {
     mNominal = nominal;
 }

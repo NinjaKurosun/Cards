@@ -4,13 +4,7 @@
 
 class Suit : public NominalBox
 {
-    const std::map<std::string, int> suits =
-    {
-        {"HEARTS"  , 0},
-        {"DIAMONDS", 0},
-        {"CLUBS"   , 0},
-        {"SPADES"  , 0}
-    };
+    static std::map<std::string, int> suits;
 
 
 public:
@@ -20,4 +14,21 @@ public:
     }
 
 
+    static void setTrump(std::string suit)
+    {
+        suits.find(suit)->second = 1;
+    }
+
+
+
+};
+
+
+
+/*static*/ std::map<std::string, int> Suit::suits =
+{
+    {"HEARTS"  , 0},
+    {"DIAMONDS", 0},
+    {"CLUBS"   , 0},
+    {"SPADES"  , 0}
 };
