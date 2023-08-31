@@ -7,6 +7,9 @@
 
 struct Card : public std::pair<Suit, Rank>
 {
+    Rank& rank = second;
+    Suit& suit = first;
+
 
     Card(Rank lRank, Suit lSuit) : std::pair<Suit, Rank>(lSuit, lRank)
     {
